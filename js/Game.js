@@ -70,7 +70,8 @@ class Game {
         cars[index-1].y = y;
 
         if (index === player.index){
-          cars[index - 1].shapeColor = "red";
+          fill("red");
+          ellipse(x,y,70,60)
           camera.position.x = displayWidth/2;
           camera.position.y = cars[index-1].y;
         }
@@ -82,12 +83,16 @@ class Game {
     }
 
     if(keyIsDown(UP_ARROW) && player.index !== null){
-      player.distance +=10
+      player.distance +=100
       player.update();
     }
 
-    if(player.distance > 3860){
+    if(player.distance > 4300){
       gameState = 2;
+      // textSize(30)
+      // text(player.name+ "Won This Game",displayWidth/2,-displayHeight*4+200)
+      e=createElement("h1","rank "+player.name);
+      e.position(displayWidth/2-10,100)
     }
    
     drawSprites();
